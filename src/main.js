@@ -6,9 +6,16 @@ import router from './router'
 // 解决移动端300毫秒点击事件延迟
 import fastClick from 'fastclick'
 // 重置css样式
-import './assets/styles/reset.css'
+import 'styles/reset.css'
 // 解决移动端1像素边框问题
-import './assets/styles/border.css'
+import 'styles/border.css'
+// 引入icon
+import 'styles/iconfont.css'
+// 引入轮播图插件
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+
+Vue.use(VueAwesomeSwiper /* { default global options } */)
 
 fastClick.attach(document.body)
 
