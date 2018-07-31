@@ -7,10 +7,10 @@
       <span class="iconfont icon-search"></span>
       输入城市/景点/游玩主题
     </div>
-    <div class="header-right">
+    <router-link tag="div" to="/city" class="header-right">
       {{city}}
       <span class="iconfont icon-jiantou"></span>
-    </div>
+    </router-link>
   </header>
 </template>
 
@@ -32,7 +32,7 @@ export default {
     display: flex;
     flex-direction: row;
     align-items: center;
-    height: .86rem;
+    height: $headerHeight;
     background: $bgColor;
     color: #fff;
 
