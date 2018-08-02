@@ -15,19 +15,25 @@ import HomeIcons from '@/components/Icons'
 import HomeRecommend from '@/components/Recommend'
 import HomeWeekend from '@/components/Weekend'
 import axios from 'axios'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Index',
   data () {
     return {
       data: {
+        lastCity: localStorage.getItem('city'),
         iconList: [],
         recommendList: [],
         swiperList: [],
         weekendList: []
-      },
-      city: '杭州'
+      }
     }
+  },
+  computed: {
+    ...mapState(['city'])
+    // ...mapState('a', ['counta']),
+    // ...mapState('b', ['countb'])
   },
   components: {
     HomeHeader,
@@ -38,14 +44,28 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json').then(res => {
+      // console.log('counta', this.counta, this.countb)
+      // this.incrementIfOddOnRootSumb()
+      // this.incrementIfOddOnRootSum()
+      axios.get(`/api/index.json?city=${this.city}`).then(res => {
         console.log(res)
         this.data = res.data.data
       })
     }
+    // ...mapActions('a', ['incrementIfOddOnRootSum']),
+    // ...mapActions('b', {'incrementIfOddOnRootSumb': 'incrementIfOddOnRootSum'})
   },
   mounted () {
     this.getHomeInfo()
+    console.log('mounted()')
+  },
+  activated () {
+    // keep-alive 组件激活时调用。
+    if (this.lastCity !== this.city) {
+      this.getHomeInfo()
+      this.lastCity = this.city
+      console.log('active')
+    }
   }
 }
 </script>
