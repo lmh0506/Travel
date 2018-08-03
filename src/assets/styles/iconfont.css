@@ -17,3 +17,4 @@
 .icon-jiantou::before{ content: "\e64a"; }
 .icon-back::before{ content: "\e624"; }
 .icon-search::before{ content: "\e632"; }
+.icon-img::before{ content: "\e692"; }
