@@ -29,7 +29,7 @@ export default {
         paginationType: 'fraction',
         // 父级元素或当前元素发生变化时 swiper自动更新
         observer: true,
-        observerParents: true
+        observeParents: true
       }
     }
   },
