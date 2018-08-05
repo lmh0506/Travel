@@ -16,6 +16,8 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 
 import store from './store/index'
+// 解决部分浏览器不支持es6语法的问题
+import 'babel-polyfill'
 
 Vue.use(VueAwesomeSwiper /* { default global options } */)
 
